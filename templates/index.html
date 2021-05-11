@@ -4,24 +4,40 @@
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
-  <body>
-    <h1>Your Own best Friend !! :)</h1>
-    <div>
-      <div id="chatbox">
-        <p class="botText"><span>Hi! I'm Infi Bot..</span></p>
+  <body style="min-height:99%; background-image:url('https://mdbcdn.b-cdn.net/img/new/standard/city/041.jpg');background-repeat: no-repeat;background-attachment: fixed;
+  background-size: 100% 100%; ">
+    <h1>What to binge?</h1>
+    <div >
+      <div id="chatbox" >
+        <p class="botText"><span>Hi! Tell me which movie you liked so that I can tell a similar one...</span></p>
       </div>
-      <div id="userInput">
+      <div id="userInput"  >
         <input id="textInput" type="text" name="msg" placeholder="Message">
         <input id="buttonInput" type="submit" value="Send">
+
       </div>
+
       <script>
         function getBotResponse() {
+
+
+
           var rawText = $("#textInput").val();
           var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
           $("#textInput").val("");
           $("#chatbox").append(userHtml);
           document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          
+
+          var botHtml = '<p class="botText"><span>OK let me see what I got for that... just a sec</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+
+
           $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>OK Here is what I got</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
             var botHtml = '<p class="botText"><span>' + data + '</span></p>';
             $("#chatbox").append(botHtml);
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
