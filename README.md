@@ -1,5 +1,3 @@
 # Pyspark-Recommendation-System
 
-This is a movie recommendation project developed over pyspark and deployed using a flask. I made use of IMDB datasets. The project deals with the calculation of cosine similarity scores and recommending top 10 movies based on the result
-
-
+The project is a savior for binge-watchers spending lots of time finding their perfect fit in movies. The project deals with a movie recommendation system. It is powered by a spark dataframe which allows it to handle a large set of data ( which we call Big data) and make recommendations. 
