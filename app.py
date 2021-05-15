@@ -93,6 +93,8 @@ def get_bot_response():
 
 	# get the entry from front end
 	entry = request.args.get('msg')
+	if entry=='quit':
+		spark.stop()
 
 	# get the movie ID of the entered movie
 	userID=getMovieID(entry,names)
